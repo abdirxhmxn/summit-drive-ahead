@@ -1,4 +1,5 @@
-import { Car, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import summitLogo from "@/assets/summit-logo.png";
 
 const footerLinks = {
   programs: [
@@ -35,18 +36,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-cyan-glow flex items-center justify-center">
-                <Car className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-lg leading-tight text-foreground">
-                  SUMMIT
-                </span>
-                <span className="text-xs text-muted-foreground tracking-widest">
-                  DRIVING SCHOOL
-                </span>
-              </div>
+            <a href="#" className="inline-block mb-6">
+              <img 
+                src={summitLogo} 
+                alt="Summit Driving School" 
+                className="h-16 w-auto object-contain"
+              />
             </a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Portland's premier driving school since 1999. Building confident, 
