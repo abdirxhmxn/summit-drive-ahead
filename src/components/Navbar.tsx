@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Car } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import summitLogo from "@/assets/summit-logo.png";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -29,25 +30,17 @@ export const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass py-3" : "bg-transparent py-5"
+        isScrolled ? "glass py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-cyan-glow flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-shadow duration-300">
-              <Car className="w-5 h-5 text-primary-foreground" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-lg leading-tight text-foreground">
-              SUMMIT
-            </span>
-            <span className="text-xs text-muted-foreground tracking-widest">
-              DRIVING SCHOOL
-            </span>
-          </div>
+        <a href="#" className="flex items-center group">
+          <img 
+            src={summitLogo} 
+            alt="Summit Driving School" 
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </a>
 
         {/* Desktop Navigation */}

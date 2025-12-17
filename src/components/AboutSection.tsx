@@ -6,7 +6,10 @@ import {
   Award, 
   Users, 
   Target,
-  Sparkles
+  Sparkles,
+  Shield,
+  Clock,
+  ThumbsUp
 } from "lucide-react";
 
 const features = [
@@ -30,6 +33,26 @@ const features = [
     title: "Local Expertise",
     description: "Training on Portland roads, from downtown to coastal routes.",
   },
+  {
+    icon: Shield,
+    title: "Safety First",
+    description: "Modern dual-control vehicles with top safety ratings.",
+  },
+  {
+    icon: Clock,
+    title: "Flexible Schedule",
+    description: "Classes available 7 days a week to fit your busy lifestyle.",
+  },
+  {
+    icon: ThumbsUp,
+    title: "Student Success",
+    description: "Personalized attention ensuring every student succeeds.",
+  },
+  {
+    icon: Sparkles,
+    title: "Modern Methods",
+    description: "Cutting-edge curriculum combining traditional and tech-based learning.",
+  },
 ];
 
 export const AboutSection = () => {
@@ -42,7 +65,7 @@ export const AboutSection = () => {
       <div className="absolute top-1/2 left-0 w-1/2 h-96 bg-primary/5 blur-3xl rounded-full -translate-y-1/2" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Content */}
           <motion.div
             ref={ref}
@@ -96,32 +119,37 @@ export const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Content - Features Grid */}
+          {/* Right Content - Why Choose Summit - Enlarged */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-5"
           >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="glass rounded-2xl p-6 border border-border/50 card-hover"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center lg:text-left">
+              Why Choose <span className="gradient-text">Summit?</span>
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  className="glass rounded-2xl p-6 border border-border/50 card-hover"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h4 className="font-display text-lg font-bold text-foreground mb-2">
+                    {feature.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

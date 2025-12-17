@@ -6,29 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Send, 
-  MapPin, 
-  Phone, 
-  Mail, 
   Clock,
   CheckCircle
 } from "lucide-react";
 
 const contactInfo = [
-  {
-    icon: MapPin,
-    title: "Location",
-    details: ["123 Congress Street", "Portland, ME 04101"],
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    details: ["(207) 555-0123"],
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    details: ["info@summitdriving.com"],
-  },
   {
     icon: Clock,
     title: "Hours",
@@ -199,7 +181,8 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col justify-between"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            {/* Hours Card */}
+            <div className="mb-8">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -207,16 +190,16 @@ export const ContactSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="glass rounded-xl p-6 border border-border/50"
+                  className="glass rounded-xl p-8 border border-border/50"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <info.icon className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <info.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display font-bold text-foreground mb-2">
+                  <h3 className="font-display font-bold text-xl text-foreground mb-3">
                     {info.title}
                   </h3>
                   {info.details.map((detail, i) => (
-                    <p key={i} className="text-muted-foreground text-sm">
+                    <p key={i} className="text-muted-foreground text-lg">
                       {detail}
                     </p>
                   ))}
