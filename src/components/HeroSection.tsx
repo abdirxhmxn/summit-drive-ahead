@@ -10,26 +10,37 @@ const stats = [
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Deep Navy Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,55%,12%)] via-background to-background" />
+      <div className="absolute inset-0 grid-pattern opacity-20" />
       
-      {/* Floating Orbs */}
+      {/* Animated Navy Blue Orbs */}
       <motion.div
         animate={{ 
-          y: [0, -30, 0],
-          opacity: [0.3, 0.5, 0.3]
+          y: [0, -40, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.15, 0.3, 0.15]
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(210,80%,25%)] blur-[120px]"
       />
       <motion.div
         animate={{ 
-          y: [0, 30, 0],
-          opacity: [0.2, 0.4, 0.2]
+          y: [0, 40, 0],
+          scale: [1, 1.15, 1],
+          opacity: [0.1, 0.25, 0.1]
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-cyan-glow/10 blur-3xl"
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]"
+      />
+      <motion.div
+        animate={{ 
+          x: [-20, 20, -20],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(220,60%,20%)] blur-[150px]"
       />
 
       {/* Content */}
