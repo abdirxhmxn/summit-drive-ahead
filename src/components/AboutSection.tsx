@@ -6,11 +6,11 @@ import {
   Users, 
   Target,
   Shield,
-  Clock,
   ThumbsUp,
   Sparkles,
   CheckCircle2
 } from "lucide-react";
+import roadBackground from "@/assets/road-background.jpg";
 
 const highlights = [
   "State-certified instructors with decades of experience",
@@ -30,26 +30,32 @@ const stats = [
 
 export const AboutSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
-      {/* Background Accents */}
-      <div className="absolute top-1/2 left-0 w-1/2 h-96 bg-primary/5 blur-3xl rounded-full -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 blur-3xl rounded-full" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={roadBackground} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+      </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
           {/* Main Box */}
-          <div className="glass-strong rounded-3xl border border-primary/20 overflow-hidden">
+          <div className="backdrop-blur-xl bg-card/80 rounded-3xl border border-primary/30 overflow-hidden shadow-2xl">
             {/* Header Section */}
-            <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-8 md:p-12 border-b border-border/30">
+            <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-transparent p-8 md:p-12 border-b border-border/30">
               <div className="flex items-center gap-3 mb-4">
                 <Sparkles className="w-6 h-6 text-primary" />
                 <span className="text-primary font-medium">About Summit</span>
@@ -70,11 +76,8 @@ export const AboutSection = () => {
             {/* Stats Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 border-b border-border/30">
               {stats.map((stat, index) => (
-                <motion.div
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className={`p-6 md:p-8 text-center ${
                     index < stats.length - 1 ? "border-r border-border/30" : ""
                   } ${index < 2 ? "border-b md:border-b-0 border-border/30" : ""}`}
@@ -84,7 +87,7 @@ export const AboutSection = () => {
                     {stat.value}
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -97,31 +100,23 @@ export const AboutSection = () => {
               
               <div className="grid md:grid-cols-2 gap-4">
                 {highlights.map((highlight, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors"
+                    className="flex items-start gap-3 p-4 rounded-xl bg-secondary/40 hover:bg-secondary/60 transition-colors"
                   >
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-foreground">{highlight}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
               {/* Bottom Tagline */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="mt-10 pt-8 border-t border-border/30 text-center"
-              >
+              <div className="mt-10 pt-8 border-t border-border/30 text-center">
                 <p className="text-muted-foreground text-lg">
                   <span className="text-primary font-semibold">Our mission:</span> We're not just teaching you to pass a test—we're building 
                   <span className="text-foreground font-medium"> lifelong driving skills</span> that keep you and others safe on the road.
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>
