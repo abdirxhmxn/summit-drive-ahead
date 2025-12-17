@@ -6,63 +6,64 @@
 
 @layer base {
   :root {
-    /* Summit Driving School - Futuristic Dark Theme */
-    --background: 222 47% 7%;
+    /* Summit Driving School - Deep Navy Futuristic Theme */
+    --background: 220 60% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 10%;
+    --card: 220 55% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 10%;
+    --popover: 220 55% 10%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 195 100% 50%;
-    --primary-foreground: 222 47% 7%;
+    --primary-foreground: 220 60% 6%;
 
-    --secondary: 222 47% 15%;
+    --secondary: 220 50% 14%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 30% 18%;
+    --muted: 220 45% 16%;
     --muted-foreground: 215 20% 65%;
 
     --accent: 195 100% 50%;
-    --accent-foreground: 222 47% 7%;
+    --accent-foreground: 220 60% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 30% 20%;
-    --input: 222 30% 18%;
+    --border: 220 40% 18%;
+    --input: 220 45% 16%;
     --ring: 195 100% 50%;
 
     --radius: 0.75rem;
 
     /* Custom Colors */
     --electric-blue: 195 100% 50%;
-    --deep-navy: 222 47% 7%;
-    --navy-light: 222 47% 12%;
+    --deep-navy: 220 60% 6%;
+    --navy-light: 220 55% 12%;
+    --navy-mid: 220 50% 18%;
     --cyan-glow: 180 100% 50%;
     --neon-purple: 280 100% 65%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(180 100% 50%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(222 47% 7%) 0%, hsl(222 47% 12%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(222 47% 12% / 0.8) 0%, hsl(222 47% 8% / 0.9) 100%);
-    --gradient-hero: radial-gradient(ellipse at top, hsl(222 47% 15%) 0%, hsl(222 47% 7%) 70%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 60% 6%) 0%, hsl(220 55% 12%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 55% 12% / 0.8) 0%, hsl(220 60% 8% / 0.9) 100%);
+    --gradient-hero: radial-gradient(ellipse at top, hsl(220 50% 16%) 0%, hsl(220 60% 6%) 70%);
 
     /* Shadows & Glows */
     --glow-primary: 0 0 30px hsl(195 100% 50% / 0.4);
     --glow-strong: 0 0 60px hsl(195 100% 50% / 0.6);
-    --shadow-card: 0 8px 32px hsl(222 47% 0% / 0.4);
-    --shadow-elevated: 0 20px 60px hsl(222 47% 0% / 0.5);
+    --shadow-card: 0 8px 32px hsl(220 60% 0% / 0.4);
+    --shadow-elevated: 0 20px 60px hsl(220 60% 0% / 0.5);
 
-    --sidebar-background: 222 47% 10%;
+    --sidebar-background: 220 55% 10%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 195 100% 50%;
-    --sidebar-primary-foreground: 222 47% 7%;
-    --sidebar-accent: 222 47% 15%;
+    --sidebar-primary-foreground: 220 60% 6%;
+    --sidebar-accent: 220 50% 15%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 20%;
+    --sidebar-border: 220 40% 18%;
     --sidebar-ring: 195 100% 50%;
   }
 
