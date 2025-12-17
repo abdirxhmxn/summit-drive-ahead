@@ -11,36 +11,64 @@ const stats = [
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Deep Navy Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,55%,12%)] via-background to-background" />
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      {/* Deep Navy Base Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,60%,10%)] via-background to-background" />
+      <div className="absolute inset-0 grid-pattern opacity-15" />
       
-      {/* Animated Navy Blue Orbs */}
+      {/* Large Cyan Glow - Top Left */}
+      <motion.div
+        animate={{ 
+          y: [0, -50, 0],
+          x: [0, 30, 0],
+          scale: [1, 1.2, 1],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[10%] left-[15%] w-[600px] h-[600px] rounded-full bg-[hsl(195,100%,50%)] blur-[180px]"
+      />
+      
+      {/* Electric Blue Glow - Center Right */}
+      <motion.div
+        animate={{ 
+          y: [0, 60, 0],
+          x: [0, -40, 0],
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-[30%] right-[10%] w-[500px] h-[500px] rounded-full bg-[hsl(210,100%,45%)] blur-[150px]"
+      />
+      
+      {/* Deep Blue Glow - Bottom Center */}
       <motion.div
         animate={{ 
           y: [0, -40, 0],
-          scale: [1, 1.1, 1],
-          opacity: [0.15, 0.3, 0.15]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(210,80%,25%)] blur-[120px]"
-      />
-      <motion.div
-        animate={{ 
-          y: [0, 40, 0],
           scale: [1, 1.15, 1],
-          opacity: [0.1, 0.25, 0.1]
+          opacity: [0.35, 0.55, 0.35]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]"
+        className="absolute bottom-[5%] left-[30%] w-[700px] h-[500px] rounded-full bg-[hsl(220,80%,35%)] blur-[160px]"
       />
+      
+      {/* Cyan Accent Glow - Bottom Right */}
       <motion.div
         animate={{ 
-          x: [-20, 20, -20],
-          opacity: [0.1, 0.2, 0.1]
+          x: [-30, 30, -30],
+          y: [0, -30, 0],
+          opacity: [0.25, 0.5, 0.25]
         }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(220,60%,20%)] blur-[150px]"
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] rounded-full bg-[hsl(180,100%,45%)] blur-[120px]"
+      />
+      
+      {/* Small Bright Accent - Top Right */}
+      <motion.div
+        animate={{ 
+          scale: [1, 1.4, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        className="absolute top-[15%] right-[25%] w-[250px] h-[250px] rounded-full bg-primary blur-[80px]"
       />
 
       {/* Content */}
