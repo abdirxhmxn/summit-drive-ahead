@@ -1,71 +1,91 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 import summitLogo from "@/assets/summit-logo.png";
 
 const footerLinks = {
-  programs: [
-    { name: "Teen Driver Ed", href: "#services" },
-    { name: "Adult Lessons", href: "#services" },
-    { name: "Defensive Driving", href: "#services" },
-    { name: "Corporate Training", href: "#services" },
+  program: [
+    { name: "Program Overview", href: "/program" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "FAQ", href: "/#faq" },
   ],
-  company: [
-    { name: "About Us", href: "#about" },
-    { name: "Our Instructors", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Careers", href: "#" },
+  legal: [
+    { name: "School Policies", href: "/policies" },
+    { name: "Privacy Policy", href: "/privacy" },
   ],
-  support: [
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact Us", href: "#contact" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
+  contact: [
+    { name: "Contact Us", href: "/#contact" },
   ],
 };
-
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-];
 
 export const Footer = () => {
   return (
     <footer className="bg-secondary/30 border-t border-border/50">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <a href="#" className="inline-block mb-6">
+          <div className="lg:col-span-1">
+            <Link to="/" className="inline-block mb-6">
               <img 
                 src={summitLogo} 
                 alt="Summit Driving School" 
-                className="h-16 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
-            </a>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Portland's premier driving school since 1999. Building confident, 
-              safe drivers through expert instruction and modern teaching methods.
+            </Link>
+            <p className="text-muted-foreground text-sm mb-4">
+              Maine state-approved driver education for teens and adults.
             </p>
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+            <p className="text-muted-foreground text-sm">
+              Building safe, confident drivers.
+            </p>
           </div>
 
-          {/* Programs */}
+          {/* Program */}
           <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Programs</h4>
+            <h4 className="font-display font-bold text-foreground mb-4">Program</h4>
             <ul className="space-y-3">
-              {footerLinks.programs.map((link) => (
+              {footerLinks.program.map((link) => (
+                <li key={link.name}>
+                  {link.href.startsWith("/#") ? (
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-display font-bold text-foreground mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-display font-bold text-foreground mb-4">Contact</h4>
+            <ul className="space-y-3">
+              {footerLinks.contact.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -76,40 +96,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <p className="text-muted-foreground text-sm mt-4">
+              Mon-Fri: 8AM-7PM<br />
+              Sat-Sun: 9AM-5PM
+            </p>
           </div>
         </div>
 
@@ -119,7 +109,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} Summit Driving School. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
-            Proudly serving Portland, Maine and surrounding areas.
+            Serving Maine
           </p>
         </div>
       </div>

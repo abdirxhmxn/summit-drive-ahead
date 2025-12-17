@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Send, 
@@ -10,17 +11,10 @@ import {
   CheckCircle
 } from "lucide-react";
 
-const contactInfo = [
-  {
-    icon: Clock,
-    title: "Hours",
-    details: ["Mon-Fri: 8AM-7PM", "Sat-Sun: 9AM-5PM"],
-  },
-];
-
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,6 +35,7 @@ export const ContactSection = () => {
     });
 
     setFormData({ name: "", email: "", phone: "", message: "" });
+    setSmsConsent(false);
     setIsSubmitting(false);
   };
 
@@ -90,7 +85,7 @@ export const ContactSection = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Full Name
+                      Full Name *
                     </label>
                     <Input
                       id="name"
@@ -104,7 +99,7 @@ export const ContactSection = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
+                      Email Address *
                     </label>
                     <Input
                       id="email"
@@ -121,7 +116,7 @@ export const ContactSection = () => {
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <Input
                     id="phone"
@@ -130,13 +125,14 @@ export const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="(207) 555-0123"
+                    required
                     className="bg-secondary/50 border-border/50 focus:border-primary"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
+                    Message *
                   </label>
                   <Textarea
                     id="message"
@@ -148,6 +144,19 @@ export const ContactSection = () => {
                     required
                     className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
                   />
+                </div>
+
+                {/* SMS Consent */}
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="sms-consent"
+                    checked={smsConsent}
+                    onCheckedChange={(checked) => setSmsConsent(checked as boolean)}
+                    className="mt-1"
+                  />
+                  <label htmlFor="sms-consent" className="text-sm text-muted-foreground cursor-pointer">
+                    I consent to receive SMS text messages for appointment reminders, schedule updates, and important notifications. Message & data rates may apply. Reply STOP to opt out.
+                  </label>
                 </div>
 
                 <Button 
@@ -183,28 +192,16 @@ export const ContactSection = () => {
           >
             {/* Hours Card */}
             <div className="mb-8">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="glass rounded-xl p-8 border border-border/50"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-display font-bold text-xl text-foreground mb-3">
-                    {info.title}
-                  </h3>
-                  {info.details.map((detail, i) => (
-                    <p key={i} className="text-muted-foreground text-lg">
-                      {detail}
-                    </p>
-                  ))}
-                </motion.div>
-              ))}
+              <div className="glass rounded-xl p-8 border border-border/50">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-foreground mb-3">
+                  Hours of Operation
+                </h3>
+                <p className="text-muted-foreground text-lg">Mon-Fri: 8AM-7PM</p>
+                <p className="text-muted-foreground text-lg">Sat-Sun: 9AM-5PM</p>
+              </div>
             </div>
 
             {/* Quick Benefits */}
@@ -214,10 +211,10 @@ export const ContactSection = () => {
               </h3>
               <ul className="space-y-3">
                 {[
-                  "Free consultation call",
+                  "Maine state-approved program",
+                  "Certified instructors",
                   "Flexible scheduling",
                   "Payment plans available",
-                  "Family discounts",
                 ].map((benefit) => (
                   <li key={benefit} className="flex items-center gap-3 text-muted-foreground">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
