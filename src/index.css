@@ -228,6 +228,14 @@
     100% { transform: translateY(100vh); }
   }
 
+  @keyframes bg-drift {
+    0% { background-position: 50% 50%; }
+    25% { background-position: 60% 40%; }
+    50% { background-position: 50% 60%; }
+    75% { background-position: 40% 50%; }
+    100% { background-position: 50% 50%; }
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -239,5 +247,9 @@
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient-shift 8s ease infinite;
+  }
+
+  .animate-bg-drift {
+    animation: bg-drift 30s ease-in-out infinite;
   }
 }

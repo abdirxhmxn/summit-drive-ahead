@@ -10,11 +10,12 @@ import roadBackground from "@/assets/road-background.jpg";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Fixed Road Background - GPU accelerated */}
+      {/* Fixed Road Background - Animated */}
       <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat will-change-transform animate-bg-drift"
         style={{ 
           backgroundImage: `url(${roadBackground})`,
+          backgroundSize: '120%',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden'
         }}
