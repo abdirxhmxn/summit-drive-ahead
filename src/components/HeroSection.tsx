@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Award, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import roadBackground from "@/assets/road-background.jpg";
 
 const highlights = [
   "Maine State-Approved",
@@ -12,9 +13,17 @@ const highlights = [
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Deep Navy Base Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,60%,10%)] via-background to-background" />
-      <div className="absolute inset-0 grid-pattern opacity-15" />
+      {/* Road Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={roadBackground} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+      </div>
+      <div className="absolute inset-0 grid-pattern opacity-10" />
       
       {/* Large Cyan Glow - Top Left */}
       <motion.div
