@@ -229,11 +229,11 @@
   }
 
   @keyframes bg-drift {
-    0% { background-position: 50% 50%; transform: translateZ(0) scale(1); }
-    25% { background-position: 60% 40%; transform: translateZ(0) scale(1.05); }
-    50% { background-position: 50% 60%; transform: translateZ(0) scale(1.02); }
-    75% { background-position: 40% 50%; transform: translateZ(0) scale(1.07); }
-    100% { background-position: 50% 50%; transform: translateZ(0) scale(1); }
+    0% { background-position: 50% 40%; transform: translateZ(0) scale(1); }
+    25% { background-position: 55% 55%; transform: translateZ(0) scale(1.08); }
+    50% { background-position: 45% 60%; transform: translateZ(0) scale(1.04); }
+    75% { background-position: 50% 45%; transform: translateZ(0) scale(1.1); }
+    100% { background-position: 50% 40%; transform: translateZ(0) scale(1); }
   }
 
   .animate-float {
@@ -250,6 +250,6 @@
   }
 
   .animate-bg-drift {
-    animation: bg-drift 15s ease-in-out infinite;
+    animation: bg-drift 10s ease-in-out infinite;
   }
 }
